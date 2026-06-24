@@ -3,10 +3,9 @@ import { jwtVerify } from "jose";
 import type { NextRequest } from "next/server";
 
 export async function middleware(request: NextRequest) {
-  console.log("middleware")
   const jwt = request.cookies.get("authToken");
 
-  if (!jwt) return NextResponse.redirect(new URL("login", request.url));
+  if (!jwt) return NextResponse.redirect(new URL("/login", request.url));
 
   try {
     const payload = await jwtVerify(
@@ -16,7 +15,7 @@ export async function middleware(request: NextRequest) {
 
     return NextResponse.next();
   } catch (error) {
-    return NextResponse.redirect(new URL("login", request.url));
+    return NextResponse.redirect(new URL("/login", request.url));
   }
 };
 

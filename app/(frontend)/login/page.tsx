@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation"
+import Logo from "@/components/logo";
+import TabsToggle from "./components/tabsToggle";
 
 export default function Login() {
 
@@ -30,33 +32,35 @@ export default function Login() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          onChange={(e) => {
-            setCredentials({
-              ...credentials,
-              email: e.target.value
-            });
-          }}
-          type="email"
-          name="email"
-          placeholder="email"
-        />
+    <div className="flex flex-col items-center justify-center">
+      <div className="flex items-center gap-2">
+        <Logo />
+        <h1>ALPHAT</h1>
+      </div>
 
-        <input
-          onChange={(e) => {
-            setCredentials({
-              ...credentials,
-              password: e.target.value
-            });
-          }}
-          type="password"
-          name="password"
-          placeholder="password"
-        />
-        <button>Login</button>
-      </form>
+      <div className="flex flex-col items-center justify-center">
+        <h1>Bienvenido de nuevo</h1>
+        <p>Accede para gestionar tus licencias</p>
+      </div>
+
+      <div className="min-w-[450] bg-white shadow-xl rounded-lg px-10 py-5">
+        <TabsToggle />
+
+        <label>Correo electrónico</label>
+        <input type="text" name="email" id="email" placeholder="ejemmplo@correo.com" />
+
+        <div>
+          <div>
+            <label>Contraseña</label>
+            <a>¿Olvidaste tu contraseña?</a>
+          </div>
+          <input type="password" name="password" id="password" placeholder="*******" />
+        </div>
+
+        <button>Acceder a mi cuenta</button>
+        <p>O continúa con</p>
+        <button>Google</button>
+      </div>
     </div>
   )
 }
