@@ -4,7 +4,7 @@ import Manager from "./components/manager"
 
 export default function Profile() {
   return (
-    <div className="flex flex-col">
+    <div className="h-full flex flex-col">
       <Header />
       <Edit />
       <Manager />
