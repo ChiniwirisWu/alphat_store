@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { jwtVerify } from "jose";
 import type { NextRequest } from "next/server";
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const jwt = request.cookies.get("authToken");
 
   if (!jwt) return NextResponse.redirect(new URL("/login", request.url));
@@ -20,5 +20,5 @@ export async function middleware(request: NextRequest) {
 };
 
 export const config = {
-  matcher: ["/catalog/:path*"],
+  matcher: ["/scatalog/:path*"],
 };

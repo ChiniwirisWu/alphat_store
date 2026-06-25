@@ -1,13 +1,15 @@
 "use client"
 
-import { useState } from "react"
+import React, { useState } from "react"
 
 enum Tabs {
   login,
   signup
 }
 
-export default function TabsToggle() {
+interface TabsToggleProps extends React.ComponentPropsWithoutRef<'div'> { };
+
+export default function TabsToggle({ ...props }: TabsToggleProps) {
 
   const [selected, setSelected] = useState(Tabs.signup)
 
@@ -17,7 +19,7 @@ export default function TabsToggle() {
   };
 
   return (
-    <div className="w-full max-w-md bg-[#f4f5f8] p-1.5 rounded-xl flex items-center">
+    <div className={`${props.className} w-full max-w-md bg-[#f4f5f8] p-1.5 rounded-xl flex items-center`}>
       {/* Botón Activo (Iniciar sesión) */}
       <button
         onClick={() => setSelected(Tabs.login)}
