@@ -3,45 +3,86 @@ import Link from "next/link"
 
 export default function Footer() {
   return (
-    <div id="container" className="flex flex-col px-10 py-10 grow-1 justify-end">
+    <footer className="w-full bg-white border-t border-slate-100 px-6 sm:px-10 py-12 mt-auto">
+      <div className="max-w-7xl mx-auto flex flex-col gap-10">
 
-      <div id="footer-top" className="grid grid-cols-3 grid-rows-1">
-        <div id="col-1">
-          <div className="flex gap-2 mb-2">
-            <LogoIcon />
-            <h1 className="font-bold">ALPHAT</h1>
+        {/* SECCIÓN SUPERIOR */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+
+          {/* Columna de Marca (Ocupa 2 columnas en pantallas grandes para mejor balance) */}
+          <div className="sm:col-span-2 space-y-3">
+            <div className="flex items-center gap-2">
+              <LogoIcon />
+              <span className="font-bold text-slate-900 tracking-tight text-base">ALPHAT</span>
+            </div>
+            <p className="text-slate-500 text-sm max-w-sm leading-relaxed tracking-tight">
+              El marketplace definitivo para licencias de software. Herramientas creadas con pasión, para creadores apasionados.
+            </p>
           </div>
-          <p className="text-gray-700 text-sm">El marketplace definitivo para licencias de software. Herramientas creadas con pasión, para creadores apasionados.</p>
+
+          {/* Columna: Soporte */}
+          <div className="flex flex-col gap-3">
+            <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">Soporte</span>
+            <ul className="flex flex-col gap-2.5 text-sm font-medium text-slate-500">
+              <li>
+                <Link href="/contact" className="hover:text-slate-950 transition-colors duration-150">
+                  Centro de ayuda
+                </Link>
+              </li>
+              <li>
+                <Link href="/issues" className="hover:text-slate-950 transition-colors duration-150">
+                  Gestión de incidencias
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-slate-950 transition-colors duration-150">
+                  Contacto comercial
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Columna: Legal */}
+          <div className="flex flex-col gap-3">
+            <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">Legal</span>
+            <ul className="flex flex-col gap-2.5 text-sm font-medium text-slate-500">
+              <li>
+                <Link href="/terms-and-policies" className="hover:text-slate-950 transition-colors duration-150">
+                  Términos de servicio
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms-and-policies" className="hover:text-slate-950 transition-colors duration-150">
+                  Política de privacidad
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms-and-policies" className="hover:text-slate-950 transition-colors duration-150">
+                  Política de reembolsos
+                </Link>
+              </li>
+            </ul>
+          </div>
+
         </div>
 
-        <div id="col-2">
-          <span className="font-semibold">Soporte</span>
-          <ul className="flex flex-col mt-2 gap-1 text-sm text-gray-700">
-            <li><Link href="">Centro de ayuda</Link></li>
-            <li><Link href="">Gestión de incidencias</Link></li>
-            <li><Link href="">Contacto</Link></li>
-          </ul>
-        </div>
-
-        <div id="col-3">
-          <span className="font-semibold">Legal</span>
-          <ul className="flex flex-col mt-2 gap-1 text-sm text-gray-700">
-            <li><Link href="">Términos de servicio</Link></li>
-            <li><Link href="">Política de privacidad</Link></li>
-            <li><Link href="">Política de reembolsos</Link></li>
-          </ul>
+        {/* SECCIÓN INFERIOR */}
+        <div className="pt-6 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-medium text-slate-400">
+          <div>
+            <p className="tracking-tight">© 2026 ALPHAT LLC. Todos los derechos reservados.</p>
+          </div>
+          <div className="flex items-center gap-4 bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-100/80 text-slate-500">
+            <span className="flex items-center gap-1">
+              <span className="text-slate-400 font-normal">Moneda:</span> USD ($)
+            </span>
+            <div className="h-3 w-[1px] bg-slate-200" />
+            <span className="flex items-center gap-1">
+              <span className="text-slate-400 font-normal">Idioma:</span> Español
+            </span>
+          </div>
         </div>
 
       </div>
-
-      <div id="footer-bot" className="flex justify-between mt-10">
-        <div>
-          <p className="text-sm text-gray-700">@ 2026 ALPHAT. Todos los derechos reservados</p>
-        </div>
-        <div>
-          <p className="text-sm text-gray-700">Moneda: USD($) Idioma: Español</p>
-        </div>
-      </div>
-    </div>
+    </footer>
   )
 }
